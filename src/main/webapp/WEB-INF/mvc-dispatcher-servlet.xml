@@ -97,14 +97,4 @@
         </mvc:message-converters>
     </mvc:annotation-driven>
 
-    <!-- 引入property配置文件 -->
-    <context:property-placeholder ignore-unresolvable="true" location="classpath:jdbc.properties "/>
-    <!-- 配置数据源 -->
-    <bean id="dataSource"
-          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
-        <property name="url" value="${url}" />
-        <property name="username" value="${username}" />
-        <property name="password" value="${password}" />
-    </bean>
 </beans>

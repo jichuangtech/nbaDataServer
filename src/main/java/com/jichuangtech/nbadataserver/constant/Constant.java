@@ -6,4 +6,5 @@ package com.jichuangtech.nbadataserver.constant;
 public class Constant {
     public static final String MODULE_NAME = "NBA_Data";
     public static final String API = "/api";
+    public static final String SERVER_IMAGE_PATH = "//home/image/nbadata/";
 }
