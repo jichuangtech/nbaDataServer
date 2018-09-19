@@ -3,7 +3,7 @@
 
 2. 使用 **dozer.xml** 进行对象的转换的时候，记得要给 **xxxVO** 对象书写 get/set方法
 
-3. 项目中需要在 **/src/main/resoucre/META-INF/persistence.xml** 文件中配置数据库的密码等信息，
+3. 项目中需要在 **/src/main/resources/META-INF/persistence.xml** 文件中配置数据库的密码等信息，
 
    又因为项目代码是托管在Github，因此考虑到安全性，
 
