@@ -23,14 +23,12 @@ public class TeamController extends BaseController {
 
     @RequestMapping(method = RequestMethod.GET)
     public Response<List<TeamRespVo>> list() {
-        List<TeamInfoEntity> mTeams = mTeamRepository.findAll();
-        LOGGER.info(" team mTeams: " + mTeams);
         Response<List<TeamRespVo>> response = new Response<>();
         
-        response.data = mapList(mTeams, TeamRespVo.class);
+        response.data = mapList(mTeamRepository.findAll(), TeamRespVo.class);
         LOGGER.info(" team vo: " + response.data);
         if(response.data == null) {
-            response.setStatusCode(ResponseCode.CODE_GOODS_GET_ALL_ERROR);
+            response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
         }
         return response;
     }

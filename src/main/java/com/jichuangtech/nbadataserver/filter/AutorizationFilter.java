@@ -87,7 +87,7 @@ public class AutorizationFilter implements Filter {
         if (sessionId == null) {
             LOGGER.info("sessionId param lost");
             resp.msg = "not found access_token in your headers";
-            resp.statusCode = ResponseCode.ACCESS_TOKEN_NOT_FOUND;
+            resp.statusCode = ResponseCode.ACCESS_TOKEN_NOT_FOUND_CODE;
             LOGGER.info(resp.msg);
             response.getWriter().write(JsonMapper.nonDefaultMapper().toJson(resp));
             return;
@@ -104,7 +104,7 @@ public class AutorizationFilter implements Filter {
         }
 
         resp.msg = "invalid token";
-        resp.statusCode = ResponseCode.TOKEN_INVALID;
+        resp.statusCode = ResponseCode.TOKEN_INVALID_CODE;
         LOGGER.info(resp.msg);
         response.getWriter().write(JsonMapper.nonDefaultMapper().toJson(resp));
     }

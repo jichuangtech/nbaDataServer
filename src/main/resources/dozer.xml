@@ -14,6 +14,27 @@
         <class-b>com.jichuangtech.nbadataserver.model.vo.TeamRespVo</class-b>
     </mapping>
 
+    <mapping map-null="false">
+        <class-a>com.jichuangtech.nbadataserver.model.MatchResultEntity</class-a>
+        <class-b>com.jichuangtech.nbadataserver.model.vo.MatchResultRespVo</class-b>
+        <field>
+            <a>homeTeam.id</a>
+            <b>homeid</b>
+        </field>
+        <field>
+            <a>homeTeam.teamname</a>
+            <b>homeTeamName</b>
+        </field>
+        <field>
+            <a>awayTeam.id</a>
+            <b>awayid</b>
+        </field>
+        <field>
+            <a>awayTeam.teamname</a>
+            <b>awayTeamName</b>
+        </field>
+    </mapping>
+
 </mappings>
 
    

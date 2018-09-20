@@ -1,6 +1,8 @@
 package com.jichuangtech.nbadataserver.model;
 
 import javax.persistence.*;
+import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "t_teaminfo", schema = "NBADATA", catalog = "")
@@ -16,6 +18,8 @@ public class TeamInfoEntity {
     private String conference;
     private String division;
     private String shortname;
+    private List<MatchResultEntity> homeMatchResultList;
+    private List<MatchResultEntity> awayMatchResultList;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -127,41 +131,71 @@ public class TeamInfoEntity {
         this.shortname = shortname;
     }
 
+
+    @OneToMany(mappedBy = "homeTeam")
+    public List<MatchResultEntity> getMatchResultList() {
+        return homeMatchResultList;
+    }
+
+    public void setMatchResultList(List<MatchResultEntity> matchResultList) {
+        this.homeMatchResultList = matchResultList;
+    }
+
+    @OneToMany(mappedBy = "awayTeam")
+    public List<MatchResultEntity> getAwayMatchResultList() {
+        return awayMatchResultList;
+    }
+
+    public void setAwayMatchResultList(List<MatchResultEntity> awayMatchResultList) {
+        this.awayMatchResultList = awayMatchResultList;
+    }
+
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof TeamInfoEntity)) return false;
 
         TeamInfoEntity that = (TeamInfoEntity) o;
 
-        if (id != that.id) return false;
-        if (teamname != null ? !teamname.equals(that.teamname) : that.teamname != null) return false;
-        if (city != null ? !city.equals(that.city) : that.city != null) return false;
-        if (teamhome != null ? !teamhome.equals(that.teamhome) : that.teamhome != null) return false;
-        if (capacity != null ? !capacity.equals(that.capacity) : that.capacity != null) return false;
-        if (siteurl != null ? !siteurl.equals(that.siteurl) : that.siteurl != null) return false;
-        if (enName != null ? !enName.equals(that.enName) : that.enName != null) return false;
-        if (joinyear != null ? !joinyear.equals(that.joinyear) : that.joinyear != null) return false;
-        if (conference != null ? !conference.equals(that.conference) : that.conference != null) return false;
-        if (division != null ? !division.equals(that.division) : that.division != null) return false;
-        if (shortname != null ? !shortname.equals(that.shortname) : that.shortname != null) return false;
-
-        return true;
+        if (getId() != that.getId()) return false;
+        if (getTeamname() != null ? !getTeamname().equals(that.getTeamname()) : that.getTeamname() != null)
+            return false;
+        if (getCity() != null ? !getCity().equals(that.getCity()) : that.getCity() != null) return false;
+        if (getTeamhome() != null ? !getTeamhome().equals(that.getTeamhome()) : that.getTeamhome() != null)
+            return false;
+        if (getCapacity() != null ? !getCapacity().equals(that.getCapacity()) : that.getCapacity() != null)
+            return false;
+        if (getSiteurl() != null ? !getSiteurl().equals(that.getSiteurl()) : that.getSiteurl() != null) return false;
+        if (getEnName() != null ? !getEnName().equals(that.getEnName()) : that.getEnName() != null) return false;
+        if (getJoinyear() != null ? !getJoinyear().equals(that.getJoinyear()) : that.getJoinyear() != null)
+            return false;
+        if (getConference() != null ? !getConference().equals(that.getConference()) : that.getConference() != null)
+            return false;
+        if (getDivision() != null ? !getDivision().equals(that.getDivision()) : that.getDivision() != null)
+            return false;
+        if (getShortname() != null ? !getShortname().equals(that.getShortname()) : that.getShortname() != null)
+            return false;
+        if (homeMatchResultList != null ? !homeMatchResultList.equals(that.homeMatchResultList) : that.homeMatchResultList != null)
+            return false;
+        return getAwayMatchResultList() != null ? getAwayMatchResultList().equals(that.getAwayMatchResultList()) : that.getAwayMatchResultList() == null;
     }
 
     @Override
     public int hashCode() {
-        int result = id;
-        result = 31 * result + (teamname != null ? teamname.hashCode() : 0);
-        result = 31 * result + (city != null ? city.hashCode() : 0);
-        result = 31 * result + (teamhome != null ? teamhome.hashCode() : 0);
-        result = 31 * result + (capacity != null ? capacity.hashCode() : 0);
-        result = 31 * result + (siteurl != null ? siteurl.hashCode() : 0);
-        result = 31 * result + (enName != null ? enName.hashCode() : 0);
-        result = 31 * result + (joinyear != null ? joinyear.hashCode() : 0);
-        result = 31 * result + (conference != null ? conference.hashCode() : 0);
-        result = 31 * result + (division != null ? division.hashCode() : 0);
-        result = 31 * result + (shortname != null ? shortname.hashCode() : 0);
+        int result = getId();
+        result = 31 * result + (getTeamname() != null ? getTeamname().hashCode() : 0);
+        result = 31 * result + (getCity() != null ? getCity().hashCode() : 0);
+        result = 31 * result + (getTeamhome() != null ? getTeamhome().hashCode() : 0);
+        result = 31 * result + (getCapacity() != null ? getCapacity().hashCode() : 0);
+        result = 31 * result + (getSiteurl() != null ? getSiteurl().hashCode() : 0);
+        result = 31 * result + (getEnName() != null ? getEnName().hashCode() : 0);
+        result = 31 * result + (getJoinyear() != null ? getJoinyear().hashCode() : 0);
+        result = 31 * result + (getConference() != null ? getConference().hashCode() : 0);
+        result = 31 * result + (getDivision() != null ? getDivision().hashCode() : 0);
+        result = 31 * result + (getShortname() != null ? getShortname().hashCode() : 0);
+        result = 31 * result + (homeMatchResultList != null ? homeMatchResultList.hashCode() : 0);
+        result = 31 * result + (getAwayMatchResultList() != null ? getAwayMatchResultList().hashCode() : 0);
         return result;
     }
 
@@ -179,6 +213,8 @@ public class TeamInfoEntity {
                 ", conference='" + conference + '\'' +
                 ", division='" + division + '\'' +
                 ", shortname='" + shortname + '\'' +
+                ", homeMatchResultList.size=" + homeMatchResultList.size() +
+                ", awayMatchResultList.size=" + awayMatchResultList.size() +
                 '}';
     }
 }

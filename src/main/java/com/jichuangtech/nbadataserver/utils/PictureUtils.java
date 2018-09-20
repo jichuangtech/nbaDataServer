@@ -32,7 +32,7 @@ public class PictureUtils {
                 os.flush();
             }
         } catch (Exception e) {
-            resultCode = ResponseCode.CODE_PIC_SAVE_ERROR;
+            resultCode = ResponseCode.PIC_SAVE_ERROR_CODE;
             LOGGER.info("getPicture e: " + e.getMessage());
             e.printStackTrace();
         } finally {
@@ -55,12 +55,12 @@ public class PictureUtils {
 
 
     public static int deletePicture(String serverPath, String picName) {
-        int resultCode = ResponseCode.CODE_PIC_DELETE_ERROR;
+        int resultCode = ResponseCode.PIC_DELETE_ERROR_CODE;
         LOGGER.info(" deletePicture path: " + serverPath + picName);
         try {
             File file = new File(serverPath, picName);
             if (file.exists() && file.delete()) {
-                resultCode = ResponseCode.CODE_SUCCESS;
+                resultCode = ResponseCode.SUCCESS_CODE;
             }
         } catch (Exception e) {
             LOGGER.info(" deletePicture error: " + e.getMessage());
