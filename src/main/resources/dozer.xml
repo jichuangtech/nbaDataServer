@@ -22,7 +22,7 @@
             <b>homeid</b>
         </field>
         <field>
-            <a>homeTeam.teamname</a>
+            <a>homeTeam.shortname</a>
             <b>homeTeamName</b>
         </field>
         <field>
@@ -30,7 +30,7 @@
             <b>awayid</b>
         </field>
         <field>
-            <a>awayTeam.teamname</a>
+            <a>awayTeam.shortname</a>
             <b>awayTeamName</b>
         </field>
     </mapping>
