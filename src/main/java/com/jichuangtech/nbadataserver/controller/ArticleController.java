@@ -9,10 +9,7 @@ import com.jichuangtech.nbadataserver.model.vo.TeamRespVo;
 import com.jichuangtech.nbadataserver.repository.ArticleRepository;
 import com.jichuangtech.nbadataserver.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,18 @@ public class ArticleController extends BaseController {
         
         response.data = mapList(mArticleRepository.findAll(), ArticleRespVo.class);
         LOGGER.info(" list vo: " + response.data);
+        if(response.data == null) {
+            response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/{articleId}", method = RequestMethod.GET)
+    public Response<ArticleRespVo> listById(@PathVariable int articleId) {
+        Response<ArticleRespVo> response = new Response<>();
+
+        response.data = mapSingle(mArticleRepository.findByArticleId(articleId), ArticleRespVo.class);
+        LOGGER.info(" listById articleId: " + articleId + ", vo: " + response.data);
         if(response.data == null) {
             response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
         }
