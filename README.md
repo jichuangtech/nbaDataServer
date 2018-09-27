@@ -8,8 +8,7 @@
    又因为项目代码是托管在Github，因此考虑到安全性，
 
    这个文件是被 **.gitignore** 忽略的文件，**因此不会上传到服务器**，需要clone项目代码的人手动在项目中创建该文件进行连接数据库：
-
-
+   
    **/nbaDataServer/src/main/resources/META-INF/persistence.xml**
    ```
    <?xml version="1.0" encoding="UTF-8"?>
@@ -50,3 +49,9 @@
    
    ```
    ![](https://ws4.sinaimg.cn/large/006tNbRwgy1fvfb5wjzimj30fk0simzv.jpg)
+    
+4. 在xxxRepository.java中，如果使用 findById()，则对应的xxxEntity.java 中必定要有指定的 id属性，
+    不然就是用 xxxEntity.java 中特有的属性进行 findByxxx()
+
+
+
