@@ -20,6 +20,11 @@
     </mapping>
 
     <mapping map-null="false">
+        <class-a>com.jichuangtech.nbadataserver.model.ArticleAttachEntity</class-a>
+        <class-b>com.jichuangtech.nbadataserver.model.vo.ArticleAttachRespVo</class-b>
+    </mapping>
+
+    <mapping map-null="false">
         <class-a>com.jichuangtech.nbadataserver.model.MatchResultEntity</class-a>
         <class-b>com.jichuangtech.nbadataserver.model.vo.MatchResultRespVo</class-b>
         <field>

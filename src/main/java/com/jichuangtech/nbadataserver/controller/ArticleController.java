@@ -11,6 +11,7 @@ import com.jichuangtech.nbadataserver.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -28,7 +29,19 @@ public class ArticleController extends BaseController {
         Response<List<ArticleRespVo>> response = new Response<>();
         
         response.data = mapList(mArticleRepository.findAll(), ArticleRespVo.class);
-        LOGGER.info(" team vo: " + response.data);
+        LOGGER.info(" list vo: " + response.data);
+        if(response.data == null) {
+            response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/byBelongMatch", method = RequestMethod.GET)
+    public Response<List<ArticleRespVo>> listByBelongMatch(@RequestParam int scheduleId) {
+        Response<List<ArticleRespVo>> response = new Response<>();
+
+        response.data = mapList(mArticleRepository.findByBelongmatch(scheduleId), ArticleRespVo.class);
+        LOGGER.info(" listByBelongMatch scheduleId: " + scheduleId + ", vo: " + response.data);
         if(response.data == null) {
             response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
         }

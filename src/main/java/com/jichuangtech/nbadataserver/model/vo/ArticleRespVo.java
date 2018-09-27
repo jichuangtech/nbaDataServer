@@ -1,6 +1,9 @@
 package com.jichuangtech.nbadataserver.model.vo;
 
+import com.jichuangtech.nbadataserver.model.ArticleAttachEntity;
+
 import java.sql.Timestamp;
+import java.util.List;
 
 public class ArticleRespVo {
     private int articleId;
@@ -13,6 +16,7 @@ public class ArticleRespVo {
     private byte isDelete;
     private Integer belongmatch;
     private int categoryId;
+    private List<ArticleAttachRespVo> articleAttachList;
 
     public int getArticleId() {
         return articleId;
@@ -92,5 +96,13 @@ public class ArticleRespVo {
 
     public void setCategoryId(int categoryId) {
         this.categoryId = categoryId;
+    }
+
+    public List<ArticleAttachRespVo> getArticleAttachList() {
+        return articleAttachList;
+    }
+
+    public void setArticleAttachList(List<ArticleAttachRespVo> articleAttachList) {
+        this.articleAttachList = articleAttachList;
     }
 }

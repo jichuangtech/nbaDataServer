@@ -2,6 +2,7 @@ package com.jichuangtech.nbadataserver.model;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "t_article", schema = "NBADATA", catalog = "")
@@ -16,6 +17,17 @@ public class ArticleEntity {
     private byte isDelete;
     private Integer belongmatch;
     private int categoryId;
+    private List<ArticleAttachEntity> articleAttachList;
+
+
+    @OneToMany(mappedBy = "article")
+    public List<ArticleAttachEntity> getArticleAttachList() {
+        return articleAttachList;
+    }
+
+    public void setArticleAttachList(List<ArticleAttachEntity> articleAttachList) {
+        this.articleAttachList = articleAttachList;
+    }
 
     @Id
     @Column(name = "article_id", nullable = false)
