@@ -18,6 +18,13 @@ public class ResponseCode {
     //MatchResult
     public static final int MATCH_RESULT_NOT_FOUND_CODE = 401;
 
+
+    //Article
+    public static final int ARTICLE_NOT_FOUND_CODE = 501;
+
+    //ArticleAttach
+    public static final int ARTICLE_ATTACH_RESULT_NOT_FOUND_CODE = 601;
+
     //图片
     public static final int PIC_SAVE_ERROR_CODE = 500;
     public static final int PIC_DELETE_ERROR_CODE = 501;
@@ -35,6 +42,12 @@ public class ResponseCode {
 
         //MatchResult
         sCodeMsgMap.put(MATCH_RESULT_NOT_FOUND_CODE, " Not found matchResult ... ");
+
+        //Article
+        sCodeMsgMap.put(ARTICLE_NOT_FOUND_CODE, " Not found Article ... ");
+
+        //ArticleAttach
+        sCodeMsgMap.put(ARTICLE_ATTACH_RESULT_NOT_FOUND_CODE, " Not found ArticleAttach ... ");
 
         //图片
         sCodeMsgMap.put(PIC_SAVE_ERROR_CODE, " Save picture error ... ");

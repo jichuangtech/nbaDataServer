@@ -13,12 +13,28 @@ public class TeamRespVo {
     private String division;
     private String shortname;
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getTeamname() {
         return teamname;
     }
 
     public void setTeamname(String teamname) {
         this.teamname = teamname;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getTeamhome() {
@@ -37,6 +53,14 @@ public class TeamRespVo {
         this.capacity = capacity;
     }
 
+    public String getSiteurl() {
+        return siteurl;
+    }
+
+    public void setSiteurl(String siteurl) {
+        this.siteurl = siteurl;
+    }
+
     public String getEnName() {
         return enName;
     }
@@ -51,6 +75,22 @@ public class TeamRespVo {
 
     public void setJoinyear(String joinyear) {
         this.joinyear = joinyear;
+    }
+
+    public String getConference() {
+        return conference;
+    }
+
+    public void setConference(String conference) {
+        this.conference = conference;
+    }
+
+    public String getDivision() {
+        return division;
+    }
+
+    public void setDivision(String division) {
+        this.division = division;
     }
 
     public String getShortname() {

@@ -7,6 +7,7 @@ import com.jichuangtech.nbadataserver.model.TeamInfoEntity;
 import com.jichuangtech.nbadataserver.model.vo.TeamRespVo;
 import com.jichuangtech.nbadataserver.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,18 @@ public class TeamController extends BaseController {
         
         response.data = mapList(mTeamRepository.findAll(), TeamRespVo.class);
         LOGGER.info(" team vo: " + response.data);
+        if(response.data == null) {
+            response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
+        }
+        return response;
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Response<TeamRespVo> lisById(@PathVariable int id) {
+        Response<TeamRespVo> response = new Response<>();
+
+        response.data = mapSingle(mTeamRepository.findById(id), TeamRespVo.class);
+        LOGGER.info(" team lisById vo: " + response.data);
         if(response.data == null) {
             response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
         }
