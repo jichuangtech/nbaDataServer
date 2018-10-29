@@ -1,5 +1,9 @@
 package com.jichuangtech.nbadataserver.model.vo;
 
+import com.jichuangtech.nbadataserver.model.StatbyteamEntity;
+
+import java.util.List;
+
 public class TeamRespVo {
     private int id;
     private String teamname;
@@ -12,6 +16,7 @@ public class TeamRespVo {
     private String conference;
     private String division;
     private String shortname;
+    private List<StatbyteamRespVo> mStatByList;
 
     public int getId() {
         return id;
@@ -101,6 +106,14 @@ public class TeamRespVo {
         this.shortname = shortname;
     }
 
+    public List<StatbyteamRespVo> getStatByList() {
+        return mStatByList;
+    }
+
+    public void setStatByList(List<StatbyteamRespVo> statByList) {
+        this.mStatByList = statByList;
+    }
+
     @Override
     public String toString() {
         return "TeamRespVo{" +
@@ -115,6 +128,7 @@ public class TeamRespVo {
                 ", conference='" + conference + '\'' +
                 ", division='" + division + '\'' +
                 ", shortname='" + shortname + '\'' +
+                ", mStatByList='" + mStatByList + '\'' +
                 '}';
     }
 }

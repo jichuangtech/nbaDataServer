@@ -20,6 +20,7 @@ public class TeamInfoEntity {
     private String shortname;
     private List<MatchResultEntity> homeMatchResultList;
     private List<MatchResultEntity> awayMatchResultList;
+    private List<StatbyteamEntity> mStatByList;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -133,11 +134,11 @@ public class TeamInfoEntity {
 
 
     @OneToMany(mappedBy = "homeTeam")
-    public List<MatchResultEntity> getMatchResultList() {
+    public List<MatchResultEntity> getHomeMatchResultList() {
         return homeMatchResultList;
     }
 
-    public void setMatchResultList(List<MatchResultEntity> matchResultList) {
+    public void setHomeMatchResultList(List<MatchResultEntity> matchResultList) {
         this.homeMatchResultList = matchResultList;
     }
 
@@ -150,6 +151,14 @@ public class TeamInfoEntity {
         this.awayMatchResultList = awayMatchResultList;
     }
 
+    @OneToMany(mappedBy = "team")
+    public List<StatbyteamEntity>  getStatByList() {
+        return mStatByList;
+    }
+
+    public void setStatByList(List<StatbyteamEntity> statByList) {
+        this.mStatByList = statByList;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -215,6 +224,7 @@ public class TeamInfoEntity {
                 ", shortname='" + shortname + '\'' +
                 ", homeMatchResultList.size=" + homeMatchResultList.size() +
                 ", awayMatchResultList.size=" + awayMatchResultList.size() +
+                ", mStatByList.size" + mStatByList.size() +
                 '}';
     }
 }
