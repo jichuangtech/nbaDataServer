@@ -2,7 +2,6 @@ package com.jichuangtech.nbadataserver.model;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Objects;
 
 @Entity
 @Table(name = "t_teaminfo", schema = "NBADATA", catalog = "")
@@ -20,7 +19,7 @@ public class TeamInfoEntity {
     private String shortname;
     private List<MatchResultEntity> homeMatchResultList;
     private List<MatchResultEntity> awayMatchResultList;
-    private List<StatbyteamEntity> mStatByList;
+    private List<StatbyTeamEntity> mStatByList;
 
     @Id
     @Column(name = "ID", nullable = false)
@@ -151,12 +150,12 @@ public class TeamInfoEntity {
         this.awayMatchResultList = awayMatchResultList;
     }
 
-    @OneToMany(mappedBy = "team")
-    public List<StatbyteamEntity>  getStatByList() {
+    @OneToMany(mappedBy = "teamId")
+    public List<StatbyTeamEntity>  getStatByList() {
         return mStatByList;
     }
 
-    public void setStatByList(List<StatbyteamEntity> statByList) {
+    public void setStatByList(List<StatbyTeamEntity> statByList) {
         this.mStatByList = statByList;
     }
 
@@ -224,7 +223,7 @@ public class TeamInfoEntity {
                 ", shortname='" + shortname + '\'' +
                 ", homeMatchResultList.size=" + homeMatchResultList.size() +
                 ", awayMatchResultList.size=" + awayMatchResultList.size() +
-                ", mStatByList.size" + mStatByList.size() +
+                ", mStatByList.size=" + mStatByList.size() +
                 '}';
     }
 }

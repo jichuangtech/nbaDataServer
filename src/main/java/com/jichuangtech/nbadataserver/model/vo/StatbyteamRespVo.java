@@ -6,8 +6,7 @@ public class StatbyteamRespVo {
     private int id;
     private String seanson;
     private String matchkind;
-    private Integer teamid;
-    private String teamName;
+    private Integer teamId;
     private Integer matchcount;
     private Double pts;
     private Double losepts;
@@ -46,11 +45,11 @@ public class StatbyteamRespVo {
     }
 
     public Integer getTeamid() {
-        return teamid;
+        return teamId;
     }
 
     public void setTeamid(Integer teamid) {
-        this.teamid = teamid;
+        this.teamId = teamid;
     }
 
     public Integer getMatchcount() {
@@ -149,12 +148,12 @@ public class StatbyteamRespVo {
         this.fpg = fpg;
     }
 
-    public String getTeamName() {
-        return teamName;
+    public Integer getTeamId() {
+        return teamId;
     }
 
-    public void setTeamName(String teamName) {
-        this.teamName = teamName;
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
     }
 
     @Override
@@ -163,8 +162,7 @@ public class StatbyteamRespVo {
                 "id=" + id +
                 ", seanson='" + seanson + '\'' +
                 ", matchkind='" + matchkind + '\'' +
-                ", teamid=" + teamid +
-                ", teamName=" + teamName +
+                ", teamId=" + teamId +
                 ", matchcount=" + matchcount +
                 ", pts=" + pts +
                 ", losepts=" + losepts +

@@ -4,14 +4,13 @@ import com.jichuangtech.nbadataserver.constant.ResponseCode;
 import com.jichuangtech.nbadataserver.constant.TeamConstant;
 import com.jichuangtech.nbadataserver.model.Response;
 import com.jichuangtech.nbadataserver.model.TeamInfoEntity;
+import com.jichuangtech.nbadataserver.model.vo.StatbyteamRespVo;
 import com.jichuangtech.nbadataserver.model.vo.TeamRespVo;
 import com.jichuangtech.nbadataserver.repository.TeamRepository;
+import com.jichuangtech.nbadataserver.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,6 +21,10 @@ public class TeamController extends BaseController {
 
     @Autowired
     private TeamRepository mTeamRepository;
+
+    @Autowired
+    private TeamService mTeamService;
+
 
     @RequestMapping(method = RequestMethod.GET)
     public Response<List<TeamRespVo>> list() {
@@ -39,11 +42,13 @@ public class TeamController extends BaseController {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Response<TeamRespVo> lisById(@PathVariable int id) {
         Response<TeamRespVo> response = new Response<>();
-        response.data = mapSingle(mTeamRepository.findById(id), TeamRespVo.class);
+        response.data = mapSingle(mTeamService.lisById(id), TeamRespVo.class);
         LOGGER.info(" team lisById vo: " + response.data);
         if(response.data == null) {
             response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);
         }
-        return response;
+
+        return  response;
     }
+
 }

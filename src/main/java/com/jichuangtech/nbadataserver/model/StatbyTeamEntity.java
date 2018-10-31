@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "t_statbyteam", schema = "NBADATA", catalog = "")
-public class StatbyteamEntity {
+public class StatbyTeamEntity {
     private int id;
     private String seanson;
     private String matchkind;
-    private TeamInfoEntity team;
+    private int teamId;
     private Integer matchcount;
     private Double pts;
     private Double losepts;
@@ -52,14 +52,14 @@ public class StatbyteamEntity {
         this.matchkind = matchkind;
     }
 
-    @ManyToOne
-    @JoinColumn(name = "teamid", referencedColumnName = "ID", nullable = false)
-    public TeamInfoEntity getTeam() {
-        return team;
+    @Basic
+    @Column(name = "teamid", nullable = false, length = 45)
+    public int getTeamId() {
+        return teamId;
     }
 
-    public void setTeam(TeamInfoEntity team) {
-        this.team = team;
+    public void setTeamId(int teamId) {
+        this.teamId = teamId;
     }
 
     @Basic
@@ -187,7 +187,7 @@ public class StatbyteamEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StatbyteamEntity that = (StatbyteamEntity) o;
+        StatbyTeamEntity that = (StatbyTeamEntity) o;
 
         if (id != that.id) return false;
         if (seanson != null ? !seanson.equals(that.seanson) : that.seanson != null) return false;
@@ -230,11 +230,11 @@ public class StatbyteamEntity {
 
     @Override
     public String toString() {
-        return "StatbyteamEntity{" +
+        return "StatbyTeamEntity{" +
                 "id=" + id +
                 ", seanson='" + seanson + '\'' +
                 ", matchkind='" + matchkind + '\'' +
-                ", team.name=" + team.getShortname() +
+                ", teamid=" + teamId +
                 ", matchcount=" + matchcount +
                 ", pts=" + pts +
                 ", losepts=" + losepts +

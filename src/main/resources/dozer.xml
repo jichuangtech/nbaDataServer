@@ -46,17 +46,8 @@
     </mapping>
 
     <mapping map-null="false">
-        <class-a>com.jichuangtech.nbadataserver.model.StatbyteamEntity</class-a>
+        <class-a>com.jichuangtech.nbadataserver.model.StatbyTeamEntity</class-a>
         <class-b>com.jichuangtech.nbadataserver.model.vo.StatbyteamRespVo</class-b>
-        <field>
-            <a>team.shortname</a>
-            <b>teamName</b>
-        </field>
-
-        <field>
-            <a>team.id</a>
-            <b>teamid</b>
-        </field>
     </mapping>
 
 </mappings>

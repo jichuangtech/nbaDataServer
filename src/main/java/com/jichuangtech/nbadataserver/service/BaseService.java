@@ -1,20 +1,24 @@
-package com.jichuangtech.nbadataserver.controller;
+package com.jichuangtech.nbadataserver.service;
 
-
+import com.jichuangtech.nbadataserver.constant.ResponseCode;
+import com.jichuangtech.nbadataserver.controller.BaseController;
 import com.jichuangtech.nbadataserver.model.Response;
+import com.jichuangtech.nbadataserver.model.vo.TeamRespVo;
+import com.jichuangtech.nbadataserver.repository.TeamRepository;
 import com.jichuangtech.nbadataserver.utils.DozerUtil;
 import com.jichuangtech.nbadataserver.utils.LogFactory;
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.Collection;
 import java.util.List;
 
-@Transactional
-public class BaseController {
+@Service
+public class BaseService {
     protected static final Logger LOGGER = LogFactory.newLogger();
-    protected String TAG = BaseController.class.getSimpleName();
+    protected String TAG = BaseService.class.getSimpleName();
 
     protected void showLog(String msg) {
         LOGGER.info("[--" + TAG + "--] " + msg);

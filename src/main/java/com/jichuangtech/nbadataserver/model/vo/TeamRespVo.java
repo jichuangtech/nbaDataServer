@@ -1,7 +1,5 @@
 package com.jichuangtech.nbadataserver.model.vo;
 
-import com.jichuangtech.nbadataserver.model.StatbyteamEntity;
-
 import java.util.List;
 
 public class TeamRespVo {
