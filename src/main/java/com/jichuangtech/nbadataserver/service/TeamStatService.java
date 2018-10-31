@@ -22,7 +22,7 @@ public class TeamStatService extends BaseService{
     @Autowired
     private TeamService mTeamService;
 
-    public List<StatbyTeamEntity> getTeamStatBySeason(int teamId, String season, String matchKind) {
+    public StatbyTeamEntity getTeamStatBySeason(int teamId, String season, String matchKind) {
 
         //（1）实体对象（查询条件值）
         StatbyTeamEntity entity = new StatbyTeamEntity();
@@ -39,7 +39,7 @@ public class TeamStatService extends BaseService{
         Example<StatbyTeamEntity> example = Example.of(entity, matcher);
 
 
-        List<StatbyTeamEntity> result = mTeamStatRepository.findAll(example);
+        StatbyTeamEntity result = mTeamStatRepository.findOne(example);
 
         showLog("getTeamStatBySeason teamId: " + teamId
                 + ", season: " + season
