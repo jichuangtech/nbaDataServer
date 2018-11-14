@@ -1,7 +1,9 @@
 package com.jichuangtech.nbadataserver.controller;
 
+import com.jichuangtech.nbadataserver.constant.ResponseCode;
 import com.jichuangtech.nbadataserver.constant.TeamStatByConstant;
 import com.jichuangtech.nbadataserver.model.Response;
+import com.jichuangtech.nbadataserver.model.StatbyTeamEntity;
 import com.jichuangtech.nbadataserver.model.vo.StatbyteamRespVo;
 import com.jichuangtech.nbadataserver.service.TeamStatService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,13 @@ public class TeamStatController extends BaseController {
                 + ", season: " + season
                 + ", matchKind: " + matchKind);
         Response<StatbyteamRespVo> response = getResponse(StatbyteamRespVo.class);
+        StatbyTeamEntity entity = mTeamStatService.getTeamStatBySeason(teamId, season, matchKind);
+        if(entity != null) {
+            response.data = mapSingle(entity, StatbyteamRespVo.class);
+        } else {
+            response.setStatusCode(ResponseCode.TEAM_STATE_RESULT_NOT_FOUND_CODE);
+        }
 
-        response.data = mapSingle(mTeamStatService.getTeamStatBySeason(teamId, season, matchKind), StatbyteamRespVo.class);
 
         return response;
     }

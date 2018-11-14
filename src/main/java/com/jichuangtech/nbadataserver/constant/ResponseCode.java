@@ -25,6 +25,9 @@ public class ResponseCode {
     //ArticleAttach
     public static final int ARTICLE_ATTACH_RESULT_NOT_FOUND_CODE = 601;
 
+    //TeamStat
+    public static final int TEAM_STATE_RESULT_NOT_FOUND_CODE = 701;
+
     //图片
     public static final int PIC_SAVE_ERROR_CODE = 500;
     public static final int PIC_DELETE_ERROR_CODE = 501;
@@ -48,6 +51,9 @@ public class ResponseCode {
 
         //ArticleAttach
         sCodeMsgMap.put(ARTICLE_ATTACH_RESULT_NOT_FOUND_CODE, " Not found ArticleAttach ... ");
+
+        //TeamStat
+        sCodeMsgMap.put(TEAM_STATE_RESULT_NOT_FOUND_CODE, " Not found TeamState ... ");
 
         //图片
         sCodeMsgMap.put(PIC_SAVE_ERROR_CODE, " Save picture error ... ");
