@@ -20,9 +20,6 @@ public class TeamController extends BaseController {
     private static final String TAG = TeamController.class.getSimpleName();
 
     @Autowired
-    private TeamRepository mTeamRepository;
-
-    @Autowired
     private TeamService mTeamService;
 
 
@@ -30,7 +27,7 @@ public class TeamController extends BaseController {
     public Response<List<TeamRespVo>> list() {
         Response<List<TeamRespVo>> response = new Response<>();
         
-        response.data = mapList(mTeamRepository.findAll(), TeamRespVo.class);
+        response.data = mapList(mTeamService.findAll(), TeamRespVo.class);
         LOGGER.info(" team vo: " + response.data);
         if(response.data == null) {
             response.setStatusCode(ResponseCode.TEAM_NOT_FOUND_CODE);

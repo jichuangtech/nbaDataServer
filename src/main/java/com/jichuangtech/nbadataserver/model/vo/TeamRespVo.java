@@ -14,7 +14,7 @@ public class TeamRespVo {
     private String conference;
     private String division;
     private String shortname;
-    private List<StatbyteamRespVo> mStatByList;
+//    private List<StatbyteamRespVo> mStatByList;
 
     public int getId() {
         return id;
@@ -104,13 +104,13 @@ public class TeamRespVo {
         this.shortname = shortname;
     }
 
-    public List<StatbyteamRespVo> getStatByList() {
-        return mStatByList;
-    }
+//    public List<StatbyteamRespVo> getStatByList() {
+//        return mStatByList;
+//    }
 
-    public void setStatByList(List<StatbyteamRespVo> statByList) {
-        this.mStatByList = statByList;
-    }
+//    public void setStatByList(List<StatbyteamRespVo> statByList) {
+//        this.mStatByList = statByList;
+//    }
 
     @Override
     public String toString() {
@@ -126,7 +126,7 @@ public class TeamRespVo {
                 ", conference='" + conference + '\'' +
                 ", division='" + division + '\'' +
                 ", shortname='" + shortname + '\'' +
-                ", mStatByList='" + mStatByList + '\'' +
+//                ", mStatByList='" + mStatByList + '\'' +
                 '}';
     }
 }
